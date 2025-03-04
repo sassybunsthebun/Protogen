@@ -4,6 +4,9 @@
 
 Adafruit_8x8matrix matrix = Adafruit_8x8matrix();
 
+int matrix1 = 2;
+int matrix2 = 3;
+
 ///EYE ANIMATION FRAMES///
 
 static const uint8_t PROGMEM eye_open_v1_left[] = {
@@ -63,12 +66,12 @@ void setMultiplexerOutput(uint8_t bus){
 
 void setup() {
   Serial.begin(9600); 
-  setMultiplexerOutput(2); 
+  setMultiplexerOutput(matrix1); 
   if (!matrix.begin(0x70)) {
-    Serial.println("There was an issue starting the LED matrix number 4");
+    Serial.println("There was an issue starting the LED matrix number 2");
   } 
 
-  setMultiplexerOutput(6); 
+  setMultiplexerOutput(matrix2); 
   if (!matrix.begin(0x70)) {
     Serial.println("There was an issue starting the LED matrix number 6");
   } 
@@ -77,14 +80,14 @@ void setup() {
 
 void loop() {
 
-  setMultiplexerOutput(2);
+  setMultiplexerOutput(matrix1);
   matrix.setRotation(3);
   matrix.setBrightness(1);
   matrix.clear();
   matrix.drawBitmap(0, 0, eye_open_v1_left, 8, 8, LED_ON);
   matrix.writeDisplay();
 
-  setMultiplexerOutput(6);
+  setMultiplexerOutput(matrix2);
   matrix.setRotation(3);
   matrix.setBrightness(1);
   matrix.clear();
@@ -93,14 +96,14 @@ void loop() {
 
   delay(1000);
 
-  setMultiplexerOutput(2);
+  setMultiplexerOutput(matrix1);
   matrix.setRotation(3);
   matrix.setBrightness(1);
   matrix.clear();
   matrix.drawBitmap(0, 0, eye_closed_v1_left, 8, 8, LED_ON);
   matrix.writeDisplay();
 
-  setMultiplexerOutput(6);
+  setMultiplexerOutput(matrix2);
   matrix.setRotation(3);
   matrix.setBrightness(1);
   matrix.clear();
