@@ -1,6 +1,6 @@
 # Protogen
 
-This is my repository for storing the code I am making for my protogen suit. I will start the project with creating the code in Arduino C, then I will recreate it in pure C or C++.
+This is my repository for storing the code I am making for my protogen suit. I will start the project with creating the code in Arduino C, then I will recreate it in pure C or C++. Currently I have made a version that covers the basics of the protogen programmed in Arduino C. It will need more animations, but I am taking a break from the project for now. If you want to make your own animations, I can reccomend [this](https://xantorohara.github.io/led-matrix-editor/#) tool.
 
 ## What you will need to recreate this
 
