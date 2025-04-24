@@ -25,7 +25,7 @@ void setMultiplexerOutput(uint8_t bus){
  * @param   int matrixNumber
  */
 void initializeMatrix(int matrixNumber) {
-  setMultiplexerOutput(matrix1);
+  setMultiplexerOutput(matrixNumber);
   if (!matrix.begin(0x70)) {
     Serial.print("There was an issue starting the LED matrix number");
     Serial.println(matrixNumber);
@@ -72,7 +72,7 @@ void setup() {
   }
   //mirror matrix
   for (int i = 0; i < 8; i++){
-    eye_left[i] = table[eye_right[i]];
+    eye_open_left[i] = table[eye_open_right[i]];
   }
 
   for (int i = 0; i <= 7; i++){
@@ -84,13 +84,13 @@ void setup() {
 void loop() {
 
   for (int i = 0; i <= 7; i++){
-    setMatrixOutput(matrixes[i], eye_left);
+    setMatrixOutput(matrixes[i], eye_open_left);
   }
 
   delay(500);
 
     for (int i = 0; i <= 7; i++){
-    setMatrixOutput(matrixes[i], eye_right);
+    setMatrixOutput(matrixes[i], eye_open_right);
   }
 
   delay(500);
